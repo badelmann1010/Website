@@ -49,10 +49,10 @@
         </div>
 
         <p id="wrongpassword"></p>
-        <h4 class="text-center"><a href="#modal2">Forgot Password?</a></h4>
+        <h4 class="text-center"><a href="#modal2" data-toggle="modal">Forgot Password?</a></h4>
       </div>
       <div class="modal-footer">
-        <h4 class="text-center">Don't have Account yet? Let's <a href="#modal3" data-toggle="modal">Sign up</a> its fun and easy!</h4>
+        <h4 class="text-center">Don't have Account yet? <a href="#modal3" data-toggle="modal">Sign up</a> its fun and easy!</h4>
         <div class="text-center"><button type="button" class="btn btn-success" data-dismiss="modal"><p>Close</p></button>
         </div>
       </div>
@@ -74,16 +74,18 @@
       			<div class="modal-body">
       				<div class="container-fluid">
         				<form action=".php" class="form-inline" method="post">
-  							<div class="row">
-  								<div class="form-group col-6">
-    								<label for="email">Email address:</label>
-    								<input type="email" class="form-control" id="email">
-  								</div>
-  								<div class="form-group col-6">
-    								<label for="pwd">Password:</label>
-    								<input type="password" class="form-control" id="pwd">
-  								</div>
-  							</div>
+ 							<div class="form-group">
+          						<input type="text" placeholder="Email Address" name="email" class="form-control" style="height:40px;" required>
+        					</div>
+ 							<div class="form-group">
+          						<input type="text" placeholder="Username" name="username" class="form-control" style="height:40px;" required>
+        					</div>
+        					<div class="form-group">
+          						<input type="text" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
+        					</div>
+        					<div class="form-group">
+          						<input type="text" placeholder="Re-type Password" name="password" class="form-control" style="height:40px;" required>
+        					</div>
   							<div class="row">
   								<div class="checkbox col-sm-6">
     								<label><input class="form-control" type="checkbox"> Remember me</label>
@@ -92,6 +94,35 @@
   							<div class="row">
   								<button type="button" class="btn btn-secondary col-sm-4" data-dismiss="modal">Close</button>
         						<button type="button" class="btn btn-primary col-sm-4">Login</button>
+        					</div>
+						</form>
+					</div>	
+      			</div>
+      			<div class="modal-footer">
+      			</div>
+    		</div>
+  		</div>
+	</div>
+
+		<!-- The Modal -->
+	<div class="modal" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h5 class="modal-title" id="exampleModalLabel">Reset your password</h5>
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      			<div class="modal-body">
+      				<div class="container-fluid">
+        				<form action=".php" class="form-inline" method="post">
+ 							<div class="form-group">
+          						<input type="text" placeholder="Email Address" name="email" class="form-control" style="height:40px;" required>
+        					</div>
+  							<div class="row">
+  								<button type="button" class="btn btn-secondary col-sm-4" data-dismiss="modal">Close</button>
+        						<button type="button" class="btn btn-primary col-sm-9">Send Password change</button>
         					</div>
 						</form>
 					</div>	
