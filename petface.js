@@ -1,7 +1,6 @@
- function login () {
+function login () {
     var loginStuff = document.getElementById("loginInfoBox");
     loginStuff.classList.remove("hidden");
-    document.getElementById("loginInfoBox").classList.remove= "hidden";
 
       /*var username = document.getElementsByName("username").value;
     var password = document.getElementsByName("password").value;
@@ -12,3 +11,7 @@
         document.getElementById("wrongpassword").innerHTML = "Thank u very much";
       }*/
    }
+
+function hideBadPass () {
+    document.getElementById("loginInfoBox").classList.add("hidden");
+}
