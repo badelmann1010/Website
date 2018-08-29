@@ -11,7 +11,7 @@ public class UserEntry {
 	StringBuilder sb = new StringBuilder();
 	
 	//change URL to your database server as needed
-	String dbPath="jdbc:mysql://localhost:3306";
+	String dbPath="jdbc:mysql://localhost:8080";
 	
 	public static UserEntry getInstance() {
 		if (instance==null) {
