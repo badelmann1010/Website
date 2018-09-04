@@ -11,7 +11,7 @@ public class UserEntry {
 	StringBuilder sb = new StringBuilder();
 	
 	//change URL to your database server as needed
-	String dbPath="jdbc:mysql://localhost:8080";
+	String dbPath="jdbc:mysql://localhost:81";
 	
 	public static UserEntry getInstance() {
 		if (instance==null) {
@@ -86,14 +86,14 @@ public class UserEntry {
 		}
 	}
 
-	public boolean userlookup( String username, String userpassword, String userType) {
-		String query="SELECT fName FROM Plan4."+userType+" WHERE fName ='" + username + "'" + "AND password ='" +userpassword+ "'";
+	public boolean userlookup( String username, String userpassword) {
+		String UserQuery="SELECT Username FROM petfacedb WHERE Username ='" + username + "'" + "AND Password ='" +userpassword+ "'";
 		try {
-			System.out.println("query="+query);
+			System.out.println("query="+UserQuery);
 			dbconn=instance.newConnection();
-			sql=dbconn.prepareStatement(query);
+			sql=dbconn.prepareStatement(UserQuery);
 			ResultSet results;
-			results=sql.executeQuery(query);
+			results=sql.executeQuery(UserQuery);
 			
 			if(!results.next()){
 				System.out.print("none found in db");

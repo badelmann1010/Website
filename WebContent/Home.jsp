@@ -38,15 +38,17 @@
         			</button>
       			</div>
       			<div class="modal-body">
-        			<div class="form-group">
-          				<input type="text" placeholder="Username" name="username" class="form-control" style="height:40px;" required>
-        			</div>
-        			<div class="form-group">
-          				<input type="password" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
-        			</div>
-        			<div class="text-center">
-          				<input type="button" value="LOGIN" onclick="login()" id="login_btn" class="btn btn-primary" style="background-color:#333366;height:40px;color:#ffffff"/>
-        			</div>
+        			<form action= "UserLogin" method="get">
+        				<div class="form-group">
+          					<input type="text" placeholder="Username" name="username" class="form-control" style="height:40px;" required>
+        				</div>
+        				<div class="form-group">
+          					<input type="password" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
+        				</div>
+        				<div class="text-center">
+          					<input type="submit" value="LOGIN" id="login_btn" class="btn btn-primary" style="background-color:#333366;height:40px;color:#ffffff"/>
+        				</div>
+        			</form>
         			<div id="loginInfoBox" class="alert alert-danger alert-dismissable fade in mt-2 hidden">
           				<button type="button" class="close" id="loginInfoButton"><span aria-hidden="true" onclick="hideBadPass()">&times;</span></button>
           				<p id="infoBox"> Invalid Password.</p>

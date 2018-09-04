@@ -1,4 +1,4 @@
-function login () {
+var JavaLogin = function login () {
     var loginStuff = document.getElementById("loginInfoBox");
     loginStuff.classList.remove("hidden");
 
