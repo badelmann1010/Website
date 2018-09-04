@@ -38,7 +38,7 @@
         			</button>
       			</div>
       			<div class="modal-body">
-        			<form action= "UserLogin" method="get">
+        			<form action= "UserLogin" method="post">
         				<div class="form-group">
           					<input type="text" placeholder="Username" name="username" class="form-control" style="height:40px;" required>
         				</div>
