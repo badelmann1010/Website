@@ -39,9 +39,11 @@ public class UserEntry {
 				return dbconn;
 			}
 			catch (Exception s){
+				System.out.println("to not gain the connection");
 				System.out.println(s.getStackTrace().toString());}
 		}
 		catch (Exception err){
+			System.out.println("not gaining the connection");
 			System.out.println(err.getStackTrace().toString());
 		}
 		return null;
@@ -87,9 +89,9 @@ public class UserEntry {
 	}
 
 	public boolean userlookup( String username, String userpassword) {
-		String UserQuery="SELECT Username FROM petfacedb WHERE Username ='" + username + "'" + "AND Password ='" +userpassword+ "'";
+		String UserQuery="SELECT Username FROM PetFaceDB.Users WHERE Username ='" + username + "'" + "AND Password ='" +userpassword+ "'";
 		try {
-			System.out.println("query="+UserQuery);
+			System.out.println("query = "+UserQuery);
 			dbconn=instance.newConnection();
 			sql=dbconn.prepareStatement(UserQuery);
 			ResultSet results;

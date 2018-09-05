@@ -1,25 +1,22 @@
 package PetFace;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.ResultSet;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
+import javax.script.Invocable;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.script.Invocable;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 
-import PetFaceDB.*;
+import PetFaceDB.UserEntry;
 
 /**
  * Servlet implementation class UserLogin
@@ -48,11 +45,12 @@ public class UserLogin extends HttpServlet {
     	System.out.println("going in here: " + user + " password: " + pass);
     	//String userType= request.getParameter("userType");
 
-    	if (user!= null && !user.trim().equals("") /*&& userType.trim().equals("Students")*/){
+    	if (user!= null && pass !=null /*!user.trim().equals("") && userType.trim().equals("Students")*/){
     		UserEntry userLogin =new UserEntry();
-    		
+
     		boolean IsUserInDB=userLogin.userlookup(user, pass);
     		if(IsUserInDB) {
+    			System.out.println("it's working " + IsUserInDB);
     			//ResultSet r=userLogin.selectStatement("SELECT Major FROM Plan4.Students WHERE Username = '"+user+"'");
     			//ResultSet userID=userLogin.selectStatement("SELECT StudentID FROM Plan4.Students WHERE fName = '"+user+"'");
     			//String studentID="";
@@ -62,10 +60,11 @@ public class UserLogin extends HttpServlet {
     	    	Invocable inv = (Invocable) engine;
     	    	
     	    	try 	{
-    	        	engine.eval(new FileReader("../../WebContent/petface.js"));
+
+    	    		engine.eval(new FileReader("../../WebContent/petface.js"));
       	    	  	Object result;
       	    	  	result = inv.invokeFunction("JavaLogin","");
-      	    	  	System.out.println(result);
+      	    	  	System.out.println("result" + result);
     	        }
     	    	catch (FileNotFoundException | NoSuchMethodException | ScriptException e) {
     	        	e.printStackTrace();
