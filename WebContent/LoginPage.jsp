@@ -17,8 +17,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>PetFace</h1>
-		</div>
-				
+		</div>		
 	</div>
 
 </body>
