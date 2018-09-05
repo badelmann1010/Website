@@ -52,6 +52,8 @@ public class UserLogin extends HttpServlet {
     		boolean IsUserInDB=userLogin.userlookup(user, pass);
     		if(IsUserInDB) {
     			System.out.println("it's working " + IsUserInDB);
+    			RequestDispatcher requestDispatcher = request.getRequestDispatcher("LoginPage.jsp");
+    			requestDispatcher.forward(request,response);
     			//ResultSet r=userLogin.selectStatement("SELECT Major FROM Plan4.Students WHERE Username = '"+user+"'");
     			//ResultSet userID=userLogin.selectStatement("SELECT StudentID FROM Plan4.Students WHERE fName = '"+user+"'");
     			//String studentID="";
