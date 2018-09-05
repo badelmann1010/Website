@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.xpath.XPathConstants;
 
 import PetFaceDB.UserEntry;
 
@@ -55,15 +56,22 @@ public class UserLogin extends HttpServlet {
     			//ResultSet userID=userLogin.selectStatement("SELECT StudentID FROM Plan4.Students WHERE fName = '"+user+"'");
     			//String studentID="";
     		} else {
-    	    	ScriptEngineManager manager = new ScriptEngineManager();
-    	    	ScriptEngine engine = manager.getEngineByName("JavaScript");
-    	    	Invocable inv = (Invocable) engine;
+
     	    	
     	    	try 	{
 
-    	    		engine.eval(new FileReader("../../WebContent/petface.js"));
-      	    	  	Object result;
-      	    	  	result = inv.invokeFunction("JavaLogin","");
+    	    		/*get the path from where it is running
+    	    		String test = new File(".").getAbsolutePath();
+    	    		System.out.println(test);*/
+        	    	
+    	    		ScriptEngineManager manager = new ScriptEngineManager();
+        	    	ScriptEngine engine = manager.getEngineByName("nashorn"); //or JavaScript
+        	    	Invocable inv = (Invocable) engine;
+    	    		engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js"));
+    	    		//inv.invokeFunction("JavaLogin","");
+    	    		System.out.println(engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js")).toString());
+    	    		Object result;
+      	    	  	result = inv.invokeFunction("login","");
       	    	  	System.out.println("result" + result);
     	        }
     	    	catch (FileNotFoundException | NoSuchMethodException | ScriptException e) {

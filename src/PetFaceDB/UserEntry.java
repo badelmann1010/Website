@@ -116,32 +116,6 @@ public class UserEntry {
 		}
 	}
 	
-	public boolean entry( String itemNumber, String price, String fName, String lName, String address, String cc, String ccNum ) {
-		int id= (int) Math.random()*1000;
-		int userId= (int) Math.random()*1000;
-		try {
-			instance.DBentry("INSERT INTO cs485_lab6.orders (`id`, `userID`, `itemNumber`, `price`, `fName`, `lName`, `address`, `cc`, `ccNum`) " +
-								"VALUES (' " +id+ " ',' " +userId+ " ',' " +itemNumber+ " ',' " +price+ " ',' " +fName+ " ',' " +lName+ " ',' " +address+ " ',' " +cc+ " ',' " +ccNum+ " ');");	
-			return true;
-		}
-		catch ( Exception err ) {
-			err.getStackTrace();
-			return false;
-		}
-	}
-	public boolean userentry( String username, String userpassword ) {
-		int id= (int) Math.random()*1000;
-		try {
-			instance.DBentry("INSERT INTO cs485_lab6.customer (`userID`, `userName`, `userPassword`) " +
-								"VALUES ('"+id+"','"+username+"','"+userpassword+"');");	
-			return true;
-		}
-		catch ( Exception err ) {
-			err.getStackTrace();
-			return false;
-		}
-	}
-	
 	public boolean courseEntry(String sID, String courseID, String comp) {
 
 		try {
