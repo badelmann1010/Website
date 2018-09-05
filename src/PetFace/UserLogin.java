@@ -57,8 +57,6 @@ public class UserLogin extends HttpServlet {
     			//ResultSet userID=userLogin.selectStatement("SELECT StudentID FROM Plan4.Students WHERE fName = '"+user+"'");
     			//String studentID="";
     		} else {
-    			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
-    			requestDispatcher.forward(request,response);
     	    	ScriptEngineManager manager = new ScriptEngineManager();
     	    	ScriptEngine engine = manager.getEngineByName("JavaScript");
     	    	Invocable inv = (Invocable) engine;
@@ -72,7 +70,8 @@ public class UserLogin extends HttpServlet {
     	    	catch (FileNotFoundException | NoSuchMethodException | ScriptException e) {
     	        	e.printStackTrace();
     	        }
-
+    			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
+    			requestDispatcher.forward(request,response);
     		}
     	}
 	
