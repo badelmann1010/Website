@@ -69,9 +69,12 @@ public class UserLogin extends HttpServlet {
     	    		ScriptEngineManager manager = new ScriptEngineManager();
         	    	ScriptEngine engine = manager.getEngineByName("nashorn"); //or JavaScript
         	    	Invocable inv = (Invocable) engine;
-    	    		engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js"));
+        	    	
+        	    	//windows file path: ../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js
+        	    	//mac file path: ../../../../../Documents/workspace/PetFace/WebContent/petface.js
+    	    		engine.eval(new FileReader("../../../../../Documents/workspace/PetFace/WebContent/petface.js"));
     	    		//inv.invokeFunction("JavaLogin","");
-    	    		System.out.println(engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js")).toString());
+    	    		//System.out.println(engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js")).toString());
     	    		Object result;
       	    	  	result = inv.invokeFunction("login","");
       	    	  	System.out.println("result" + result);
