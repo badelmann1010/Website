@@ -2,3 +2,5 @@
 css/bootstrap*
 js/bootstrap*
 .classpath
+.project
+.settings*

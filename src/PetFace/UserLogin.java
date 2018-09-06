@@ -62,9 +62,9 @@ public class UserLogin extends HttpServlet {
     	    	
     	    	try 	{
 
-    	    		/*get the path from where it is running
+    	    		/*get the path from where it is running*/
     	    		String test = new File(".").getAbsolutePath();
-    	    		System.out.println(test);*/
+    	    		System.out.println(test);
         	    	
     	    		ScriptEngineManager manager = new ScriptEngineManager();
         	    	ScriptEngine engine = manager.getEngineByName("nashorn"); //or JavaScript
