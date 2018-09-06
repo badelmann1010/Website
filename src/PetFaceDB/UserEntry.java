@@ -98,11 +98,11 @@ public class UserEntry {
 			results=sql.executeQuery(UserQuery);
 			
 			if(!results.next()){
-				System.out.print("none found in db");
+				System.out.println("none found in db");
 				dbconn.close();
 				return false;
 			}
-			else System.out.print("found");
+			else System.out.println("found");
 			dbconn.close();
 			return true;
 			//WARNING!
