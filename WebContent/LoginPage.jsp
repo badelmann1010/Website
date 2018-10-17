@@ -17,6 +17,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>PetFace</h1>
+			<p>This is where you will see your account feed.</p>
 		</div>		
 	</div>
 

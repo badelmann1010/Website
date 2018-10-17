@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -12,12 +13,15 @@ import javax.script.ScriptException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.xpath.XPathConstants;
+import javax.xml.parsers.*;
 
 import PetFaceDB.UserEntry;
+import jdk.internal.org.xml.sax.InputSource;
 
 /**
  * Servlet implementation class UserLogin
@@ -50,6 +54,7 @@ public class UserLogin extends HttpServlet {
     		UserEntry userLogin =new UserEntry();
 
     		boolean IsUserInDB=userLogin.userlookup(user, pass);
+    		boolean IsUsernameinDB=userLogin.userinDB(user);
     		if(IsUserInDB) {
     			System.out.println("it's working " + IsUserInDB);
     			RequestDispatcher requestDispatcher = request.getRequestDispatcher("LoginPage.jsp");
@@ -57,30 +62,47 @@ public class UserLogin extends HttpServlet {
     			//ResultSet r=userLogin.selectStatement("SELECT Major FROM Plan4.Students WHERE Username = '"+user+"'");
     			//ResultSet userID=userLogin.selectStatement("SELECT StudentID FROM Plan4.Students WHERE fName = '"+user+"'");
     			//String studentID="";
+    		} else if (IsUsernameinDB){
+    			Cookie myCookie = new Cookie("Auth", "True");
+    			response.addCookie(myCookie);
+    			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
+    			requestDispatcher.forward(request,response);
     		} else {
 
     	    	
-    	    	try 	{
+    			/*try 	{
 
-    	    		/*get the path from where it is running
-    	    		String test = new File(".").getAbsolutePath();
-    	    		System.out.println(test);*/
+    	    		//get the path from where it is running
+    	    		//String test = new File(".").getAbsolutePath();
+    	    		//System.out.println(test);
         	    	
+    	    		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    	    		dbf.setValidating(false);
+    	    		dbf.setNamespaceAware(true);
+    	    		dbf.setIgnoringComments(false);
+    	    		dbf.setIgnoringElementContentWhitespace(false);
+    	    		dbf.setExpandEntityReferences(false);
+    	    		DocumentBuilder db = dbf.newDocumentBuilder();
+    	    		
     	    		ScriptEngineManager manager = new ScriptEngineManager();
         	    	ScriptEngine engine = manager.getEngineByName("nashorn"); //or JavaScript
         	    	Invocable inv = (Invocable) engine;
         	    	
         	    	//windows file path: ../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js
         	    	//mac file path: ../../../../../Documents/workspace/PetFace/WebContent/petface.js
-    	    		engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js"));
+    	    		Object script = engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js"));
+
     	    		//inv.invokeFunction("JavaLogin","");
-    	    		System.out.println(engine.eval(new FileReader("../../Users/badelmann/Documents/GitHub/PetFace/WebContent/petface.js")));
+    	    		System.out.println(script);
+    	    		db.parse(new InputSource(new StringReader((String) script)));
       	    	  	Object result = inv.invokeFunction("login","");
       	    	  	System.out.println("result" + result);
     	        }
     	    	catch (FileNotFoundException | NoSuchMethodException | ScriptException e) {
     	        	e.printStackTrace();
-    	        }
+    	        }*/
+    			Cookie myCookie = new Cookie("Auth", "False");
+    			response.addCookie(myCookie);
     			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
     			requestDispatcher.forward(request,response);
     		}

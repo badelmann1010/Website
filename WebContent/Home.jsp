@@ -7,12 +7,12 @@
 	<title>PetFace</title>
 	<link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="petfaceStyling.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="petface.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="petface.js"></script>
 </head>
-<body>
+<body onload="PetfaceloadingPage()">
 
 	<div class="container">
 		<div class="jumbotron">
@@ -54,11 +54,10 @@
           				<p id="infoBox"> Invalid Password.</p>
         			</div>
 
-        			<p id="wrongpassword"></p>
-        			<h4 class="text-center"><a href="#modal2" data-toggle="modal">Forgot Password?</a></h4>
+        			<h4 class="text-center"><a id="wrongPassword" href="#modal2" data-toggle="modal">Forgot Password?</a></h4>
       			</div>
       			<div class="modal-footer">
-        				<h4 class="text-center">Don't have Account yet? <a href="#modal3" data-toggle="modal">Sign up</a> its fun and easy!</h4>
+        				<h4 class="text-center">Don't have Account yet? <a id="noAccount" href="#modal3" data-toggle="modal">Sign up</a> its fun and easy!</h4>
         			<div class="text-center">
         				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         			</div>
@@ -87,14 +86,20 @@
         					<div class="form-group">
           						<input type="tel" placeholder="Phone Number" name="Phone" class="form-control" style="height:40px;" required>
         					</div>
+        					<div class="form-group">
+          						<input type="text" placeholder="First Name" name="firstname" class="form-control" style="height:40px;" required>
+        					</div>
+        					<div class="form-group">
+          						<input type="text" placeholder="Last Name" name="lastname" class="form-control" style="height:40px;" required>
+        					</div>
  							<div class="form-group">
           						<input type="text" placeholder="Username" name="username" class="form-control" style="height:40px;" required>
         					</div>
         					<div class="form-group">
-          						<input type="text" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
+          						<input type="password" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
         					</div>
         					<div class="form-group">
-          						<input type="text" placeholder="Re-type Password" name="password" class="form-control" style="height:40px;" required>
+          						<input type="password" placeholder="Re-type Password" name="password" class="form-control" style="height:40px;" required>
         					</div>
   							<div class="form-group">
   								<div class="checkbox form-group">

@@ -1,10 +1,22 @@
 function login () {
-    var loginStuff = document.getElementById("loginInfoBox");
-    loginStuff.classList.remove("hidden");
+    document.getElementById("loginInfoBox").classList.remove("hidden");
    }
 
-/*function hideBadPass () {
+function hideBadPass () {
     document.getElementById("loginInfoBox").classList.add("hidden");
+}
+
+function PetfaceloadingPage () {
+	var cookie = document.cookie;
+	if (cookie == "Auth=True") {
+		//go to the forgot password page
+		//alert("Going to the forgot password page: "+cookie);
+		document.getElementById("wrongPassword").click();
+	} else {
+		//go to the sign up page
+		//alert("Going to the signup page: "+cookie);
+		document.getElementById("noAccount").click();
+	}
 }
 
 
