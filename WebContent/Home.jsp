@@ -18,7 +18,7 @@
 		<div class="jumbotron">
 			<div>
 				<!-- Button to open the modal login form -->
-				<button type="button" class="btn btn-primary sticky-top logon" data-toggle="modal" data-target="#loginModal">Login</button>
+				<button type="button" id="StartLogin" class="btn btn-primary sticky-top logon" data-toggle="modal" data-target="#loginModal">Login</button>
 			</div>
 			<h1>PetFace</h1>
 		</div>
@@ -45,6 +45,11 @@
         				<div class="form-group">
           					<input type="password" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
         				</div>
+        				<div class="form-group">
+  								<div class="checkbox form-group">
+    								<label>  <input class="" type="checkbox"> Remember Me</label>
+  								</div>
+  						</div>
         				<div class="text-center">
           					<input type="submit" value="LOGIN" id="login_btn" class="btn btn-primary" style="background-color:#333366;height:40px;color:#ffffff"/>
         				</div>
@@ -79,12 +84,12 @@
       			</div>
       			<div class="modal-body">
       				<div class="container-fluid">
-        				<form action=".php" class="" method="post">
+        				<form action="UserCreate" method="post">
  							<div class="form-group">
-          						<input type="text" placeholder="Email Address" name="email" class="form-control" style="height:40px;" required>
+          						<input type="email" placeholder="Email Address" name="email" class="form-control" style="height:40px;" required>
         					</div>
         					<div class="form-group">
-          						<input type="tel" placeholder="Phone Number" name="Phone" class="form-control" style="height:40px;" required>
+          						<input type="tel" placeholder="Phone Number (123-456-7890)" name="Phone" class="form-control" style="height:40px;" id="tele" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required>
         					</div>
         					<div class="form-group">
           						<input type="text" placeholder="First Name" name="firstname" class="form-control" style="height:40px;" required>
@@ -96,21 +101,16 @@
           						<input type="text" placeholder="Username" name="username" class="form-control" style="height:40px;" required>
         					</div>
         					<div class="form-group">
-          						<input type="password" placeholder="Password" name="password" class="form-control" style="height:40px;" required>
+          						<input type="password" id="p1" placeholder="Password" name="password" class="form-control" style="height:40px;" onchange="PasswordCheck()" required>
         					</div>
         					<div class="form-group">
-          						<input type="password" placeholder="Re-type Password" name="password" class="form-control" style="height:40px;" required>
+          						<input type="password" id="p2" placeholder="Re-type Password" name="passwordConfirm" class="form-control" style="height:40px;" onchange="PasswordCheck()" required>
         					</div>
   							<div class="form-group">
-  								<div class="checkbox form-group">
-    								<label>  <input class="" type="checkbox"> Remember Me</label>
-  								</div>
-  							</div>
-  							<div class="form-group">
-  								<button type="button" class="btn btn-secondary col-sm-4 mt-3" data-dismiss="modal">Close</button>
-        						<button type="button" class="btn btn-primary col-sm-4 float-right mt-3">Login</button>
+  								<input type="submit" value="Sign Up" id="SignUp_btn" class="btn btn-primary col-sm-4 float-right mt-3" style="background-color:#333366;height:40px;color:#ffffff"/>
         					</div>
 						</form>
+						<button type="button" class="btn btn-secondary col-sm-4 mt-3" data-dismiss="modal">Close</button>
 					</div>	
       			</div>
       			<div class="modal-footer">
@@ -136,10 +136,10 @@
           						<input type="text" placeholder="Email Address" name="email" class="form-control" style="height:40px;" required>
         					</div>
   							<div class="form-group">
-  								<button type="button" class="btn btn-secondary col-sm-5 mt-3" data-dismiss="modal">Close</button>
-        						<button type="button" class="btn btn-primary col-sm-5 float-right mt-3">Send Password change</button>
+  								<input type="submit" value="Send Password Change" id="PasswordChange_btn" class="btn btn-primary col-sm-5 float-right mt-3" style="background-color:#333366;height:40px;color:#ffffff"/>
         					</div>
 						</form>
+						<button type="button" class="btn btn-secondary col-sm-5 mt-3" data-dismiss="modal">Close</button>
 					</div>	
       			</div>
       			<div class="modal-footer">
