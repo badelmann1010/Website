@@ -21,7 +21,7 @@ function PetfaceloadingPage () {
 		document.getElementById("wrongPassword").click();
 	} else {
 		//go to the sign up page
-		alert("Going to the sign up page: "+cookie);
+		//alert("Going to the sign up page: "+cookie);
 		document.getElementById("StartLogin").click();
 		document.getElementById("noAccount").click();
 	}
@@ -34,8 +34,14 @@ function PasswordCheck () {
 	if (a == false) {
     	a = true;
     } else if (x!=y) {
+    	document.getElementById("SignUp_btn").classList.add("hide");
     	alert ("your passwords don't match! Please re-type");
-    } else {
-    	//passwords match, do nothing
+    } else if (x == "" || y == "") {
+    	//one or both password fields is empty
+		//alert("x " + x + " y " + y + " a " + a)
+		document.getElementById("SignUp_btn").classList.add("hide");
+	} else {
+    	//passwords match, enable the sign up button
+    	document.getElementById("SignUp_btn").classList.remove("hide");
     }
 }
