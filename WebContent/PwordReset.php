@@ -8,3 +8,35 @@ $reset = wordwrap($reset,70);
 // send email
 mail("someone@example.com","My subject",$reset);
 ?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<?php
+
+if(isset($_POST['submit'])) {
+$subject = "Password Reset for PetFace";
+$CustomerEmail = $_POST['email'];
+ 
+$body = "Here is the link for resetting your password: ";
+ 
+//echo "Data has been submitted to $to!";
+
+mail($CustomerEmail, $subject, $body);
+} else {
+//echo "no work";
+}
+?>
+
+        <script type="text/javascript">
+            window.location.href = "Home.jsp"
+            alert("password reset sent to <?php $CustomerEmail ?>");
+         </script>
+
+</body>
+</html>
