@@ -11,14 +11,17 @@ function hideBadPass () {
 
 function PetfaceloadingPage () {
 	var cookie = document.cookie;
-	if (cookie == "Auth=True") {
+	
+	if (cookie == "") {
+		//nothing happens, first load of the page
+	} else if (cookie == "Auth=True") {
 		//go to the forgot password page after 3 attempts
 		//call login function to show that you forgot password
 		//alert("Going to the forgot password page: "+cookie);
 		document.getElementById("wrongPassword").click();
 	} else {
 		//go to the sign up page
-		//alert("Going to the sign up page: "+cookie);
+		alert("Going to the sign up page: "+cookie);
 		document.getElementById("StartLogin").click();
 		document.getElementById("noAccount").click();
 	}
