@@ -18,8 +18,68 @@
 		<div class="jumbotron">
 			<h1>PetFace</h1>
 			<p>This is where you will see your account feed.</p>
-		</div>		
+		</div>
 	</div>
+	<div class="container" style="text-align:center;">
+		<div class="row">
+  			<div class="card bg-secondary scroll .col-md-4 .col-lg-4" style="height: 15rem; width: 30rem; margin:15px auto auto auto;">
+  				<div class="card-body">
+    				<div class="col-*-*">this is one column .........................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    			</div>
+    		</div>
+  			<div class="card bg-secondary scroll .col-md-4 .col-lg-4" style="height: 15rem; width: 30rem; margin:15px auto auto auto;">
+  				<div class="card-body">
+    				<div class="col-*-*">this is one column .........................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    			</div>
+    		</div>
+  			<div class="card bg-secondary scroll .col-md-4 .col-lg-4" style="height: 15rem; width: 30rem; margin:15px auto auto auto;">
+  				<div class="card-body">
+    				<div class="col-*-*">this is one column .........................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    			</div>
+    		</div>
+    	</div>
+		<div class="row">
+  			<div class="card bg-secondary scroll .col-md-4 .col-lg-4" style="height: 15rem; width: 30rem; float:right; margin:15px auto auto auto;'">
+  				<div class="card-body">
+    				<div class="col-*-*">this is one column .........................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    			</div>
+    		</div>
+  			<div class="card bg-secondary scroll .col-md-4 .col-lg-4" style="height: 15rem; width: 30rem; float:right; margin:15px auto auto auto;">
+  				<div class="card-body">
+    				<div class="col-*-*">this is one column .........................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    			</div>
+    		</div>
+    		<div class="card bg-secondary scroll .col-md-4 .col-lg-4" style="height: 15rem; width: 30rem; float:right; margin:15px auto auto auto;">
+  				<div class="card-body">
+    				<div class="col-*-*">this is one column .........................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    				<div class="col-*-*">this is another column .....................................................</div>
+    			</div>
+    		</div>
+    	</div>    	
+    </div>	 	  	  	  	
 
 </body>
 </html>

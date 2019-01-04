@@ -21,13 +21,13 @@ mail("someone@example.com","My subject",$reset);
 
 if(isset($_POST['submit'])) {
 $subject = "Password Reset for PetFace";
-$CustomerEmail = $_POST['email'];
+$UserEmail = $_POST['email'];
  
 $body = "Here is the link for resetting your password: ";
  
 //echo "Data has been submitted to $to!";
 
-mail($CustomerEmail, $subject, $body);
+mail($UserEmail, $subject, $body);
 } else {
 //echo "no work";
 }
@@ -35,7 +35,7 @@ mail($CustomerEmail, $subject, $body);
 
         <script type="text/javascript">
             window.location.href = "Home.jsp"
-            alert("password reset sent to <?php $CustomerEmail ?>");
+            alert("password reset sent to <?php $UserEmail ?>");
          </script>
 
 </body>

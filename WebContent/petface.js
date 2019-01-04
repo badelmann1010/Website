@@ -31,7 +31,7 @@ function PasswordCheck () {
 	var x = document.getElementById("p1").value;
 	var y = document.getElementById("p2").value;
 	//alert("x " + x + " y " + y + " a " + a)
-	if (a == false) {
+	if (!a) {
     	a = true;
     } else if (x!=y) {
     	document.getElementById("SignUp_btn").classList.add("hide");
