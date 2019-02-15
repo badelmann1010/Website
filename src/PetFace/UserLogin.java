@@ -45,6 +45,7 @@ public class UserLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
+		int numberOfAttempts = 0;
 		String user=request.getParameter("username");
     	String pass=request.getParameter("password");
     	System.out.println("going in here: " + user + " password: " + pass);
@@ -103,6 +104,17 @@ public class UserLogin extends HttpServlet {
     	        }*/
     			Cookie myCookie = new Cookie("Auth", "False");
     			response.addCookie(myCookie);
+    			
+    			numberOfAttempts += 1;
+    			String attemptNumber = Integer.toString(numberOfAttempts);
+    			Cookie attempts = new Cookie ("attempts", attemptNumber);
+    			
+    			if (attempts == null) {
+    				
+    			} else {
+    				
+    			}
+    			response.addCookie(attempts);
     			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
     			requestDispatcher.forward(request,response);
     		}
