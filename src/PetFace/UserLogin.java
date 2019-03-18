@@ -29,6 +29,7 @@ import jdk.internal.org.xml.sax.InputSource;
 @WebServlet("/UserLogin")
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	int numberOfAttempts = 0;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -45,7 +46,6 @@ public class UserLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		int numberOfAttempts = 0;
 		String user=request.getParameter("username");
     	String pass=request.getParameter("password");
     	System.out.println("going in here: " + user + " password: " + pass);
@@ -60,12 +60,27 @@ public class UserLogin extends HttpServlet {
     			System.out.println("it's working " + IsUserInDB);
     			RequestDispatcher requestDispatcher = request.getRequestDispatcher("LoginPage.jsp");
     			requestDispatcher.forward(request,response);
+    			numberOfAttempts = 0;
     			//ResultSet r=userLogin.selectStatement("SELECT Major FROM Plan4.Students WHERE Username = '"+user+"'");
     			//ResultSet userID=userLogin.selectStatement("SELECT StudentID FROM Plan4.Students WHERE fName = '"+user+"'");
     			//String studentID="";
     		} else if (IsUsernameinDB){
     			Cookie myCookie = new Cookie("Auth", "True");
+    			String cook = myCookie.getValue();
+    			String cooke = myCookie.getName();
+    			System.out.println("cookie " + cook + " Name " + cooke);
     			response.addCookie(myCookie);
+    			
+    			numberOfAttempts += 1;
+    			String attemptNumber = Integer.toString(numberOfAttempts);
+    			Cookie attempts = new Cookie ("attempts", attemptNumber);
+    			response.addCookie(attempts);
+    			
+    			/*numberOfAttempts += 1;
+    			String attemptNumber = Integer.toString(numberOfAttempts);
+    			Cookie attempts = new Cookie ("attempts", attemptNumber);
+    			response.addCookie(attempts);*/
+
     			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
     			requestDispatcher.forward(request,response);
     		} else {
@@ -108,12 +123,6 @@ public class UserLogin extends HttpServlet {
     			numberOfAttempts += 1;
     			String attemptNumber = Integer.toString(numberOfAttempts);
     			Cookie attempts = new Cookie ("attempts", attemptNumber);
-    			
-    			if (attempts == null) {
-    				
-    			} else {
-    				
-    			}
     			response.addCookie(attempts);
     			RequestDispatcher requestDispatcher = request.getRequestDispatcher("Home.jsp");
     			requestDispatcher.forward(request,response);

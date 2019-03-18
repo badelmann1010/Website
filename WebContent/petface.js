@@ -14,16 +14,20 @@ function PetfaceloadingPage () {
 	
 	if (cookie == "") {
 		//nothing happens, first load of the page
-	} else if (cookie == "Auth=True") {
+	} else if (cookie.includes("Auth=True")) {
 		//go to the forgot password page after 3 attempts
 		//call login function to show that you forgot password
 		//alert("Going to the forgot password page: "+cookie);
-		document.getElementById("wrongPassword").click();
+		document.getElementById("wrongPassword").click();	//forgot password button
+		//window.alert("this is the true section "+cookie);
 	} else {
 		//go to the sign up page
 		//alert("Going to the sign up page: "+cookie);
-		document.getElementById("StartLogin").click();
-		document.getElementById("noAccount").click();
+		document.getElementById("StartLogin").click();		//main login button
+		document.getElementById("noAccount").click();		//don't have account sign up button
+		//window.alert(cookie);
+	} if (cookie.includes("attempts=1")) {
+		alert(cookie);
 	}
 }
 
